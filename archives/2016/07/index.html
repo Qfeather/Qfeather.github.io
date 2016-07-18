@@ -294,6 +294,26 @@ var isTriggerAnalytics = !( true && isIgnoreHost );
   // fancybox
   var backgroundImages = [];
   
+    
+      backgroundImages.push('/images/all.jpg');
+    
+      backgroundImages.push('/images/miku1.png');
+    
+      backgroundImages.push('/images/miku2.jpg');
+    
+      backgroundImages.push('/images/LM2.jpg');
+    
+      backgroundImages.push('/images/LM.jpg');
+    
+      backgroundImages.push('/images/SJ.png');
+    
+      backgroundImages.push('/images/red devil.png');
+    
+      backgroundImages.push('/images/black1.jpg');
+    
+      backgroundImages.push('/images/black2.jpg');
+    
+  
   $('#post').each(function(i){
     $(this).find('img').each(function(){
       if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
@@ -307,7 +327,7 @@ var isTriggerAnalytics = !( true && isIgnoreHost );
   });
   $(".fancybox").fancybox();
 
-var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","flash2"],"timer":true,"delay":5000,"shuffle":true,"count":28};
+var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","flash2"],"timer":true,"delay":5000,"shuffle":true,"count":9};
 var unsplashConfig = {"gravity":"north"};
 
 $(".fancybox-thumb").fancybox({
