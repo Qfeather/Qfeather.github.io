@@ -1,0 +1,478 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="寂羽子曜">
+  
+  
+  
+  
+    <meta name="description" content="放在前面的话前一段时间突然想起曾经搭建过一个博客，放在了gitcafe上面 (:зゝ∠)，后来gitcafe被吞并还是啥的已经炸了，后来又重装了几次电脑彻底找不到了┑(￣Д ￣)┍，没办法只能再搭建一个在github上面。本文仅供参考，毕竟只是本人的备忘所，有什么问题咱也解决不了下面正文开始
+参考MAC搭建hexo博客Windows搭建曾经在gitcafe上搭建时参考的资料
+环境准备
+安装N...">
+  
+  <title>使用hexo框架搭建个人博客 [ 羽落之地 ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="/images/LM.jpg"/>
+          <div id="homelink">羽落之地</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Archives</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/stiekel/hexo-theme-random">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>使用hexo框架搭建个人博客</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">撰写于 2016-07-20</span>
+      
+        <span id = "post-title-updated">修改于 2016-07-20</span>
+      
+      
+      
+      <span id = "post-title-tags">
+      标签
+      
+      
+        
+        
+        <a href="/tags/hexo/">hexo</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/github/">github</a>
+      
+        
+          /
+        
+        
+        <a href="/tags/第一篇技术型博文/">第一篇技术型博文</a>
+      
+      </span>
+      
+    </p>
+    
+    <h1 id="放在前面的话"><a href="#放在前面的话" class="headerlink" title="放在前面的话"></a>放在前面的话</h1><p>前一段时间突然想起曾经搭建过一个博客，放在了gitcafe上面 <em>(:зゝ∠)</em>，后来gitcafe被吞并还是啥的已经炸了，后来又重装了几次电脑彻底找不到了┑(￣Д ￣)┍，没办法只能再搭建一个在github上面。<br><strong>本文仅供参考，毕竟只是本人的备忘所，有什么问题咱也解决不了</strong><br>下面正文开始</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://baixin.io/2015/08/HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">MAC搭建hexo博客</a><br><a href="http://ibruce.info/2013/11/22/hexo-your-blog/?utm_source=tuicool" target="_blank" rel="external">Windows搭建</a><br><a href="https://blog.gorgiaxx.com/2015/11/%e5%9c%a8gitcafe%e4%b8%8a%e9%83%a8%e7%bd%b2hexo%e5%8d%9a%e5%ae%a2/" target="_blank" rel="external">曾经在gitcafe上搭建时参考的资料</a></p>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><hr>
+<p><strong>安装Node.js</strong><br>到<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js官网</a>下载最新版本的Node.js，我用的是4.4.7</p>
+<hr>
+<p><strong>安装git</strong><br>到<a href="https://www.git-scm.com/download/" target="_blank" rel="external">git官网</a>下载git，或者<a href="http://gitb.org/git-for-windows/" target="_blank" rel="external">git吧吧主的镜像公益站</a>下载git(我在官网无法下载不知道你们什么情况，顺便感谢git吧吧主)我的版本是2.9.0 64位。</p>
+<hr>
+<p><strong>安装sublime(可选)</strong><br>直接到<a href="http://www.sublimetext.com/" target="_blank" rel="external">sumlime官网</a>下载即可<br>sublime在这里仅仅作为一个文本编辑器使用，支持各种编程语言和文件格式，当然也支持Markdown语法，实在是个不可多得的练码奇才。</p>
+<hr>
+<h2 id="申请github账号"><a href="#申请github账号" class="headerlink" title="申请github账号"></a>申请github账号</h2><p>在github上面放代码自然要准备一个github账号，这里我就不详细说了，需要注意的是用户名不能使用汉语。<br>可以配置SSH keys，也可以不配置，不配置的话以后每次对自己的博客有改动提交的时候就要手动输入账号密码，配置了就不需要了，怎么配置我就不多说了，网上有很多教程，我给的参考里面也有这一部分的教程。<br>需要注意的一点是就是配置SSH的地方现在在头像下方的菜单栏的settings。<br><img src="http://upload-images.jianshu.io/upload_images/2515396-220c773cf672f921.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>点进去之后找到SSH and GPG keys点击就能看到了。<br><img src="http://upload-images.jianshu.io/upload_images/2515396-4e16ff6b75ae28c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="在github新建一个Repository"><a href="#在github新建一个Repository" class="headerlink" title="在github新建一个Repository"></a>在github新建一个Repository</h2><ol>
+<li>建立与你用户名对应的仓库，仓库名必须为your_user_name.github.io</li>
+<li>我的提示警告是因为我已经有一个同名的Repository了</li>
+<li>Description这个是描述你创建这个Rspository的作用</li>
+<li>要选择上Initialize this repository with a README<br>栗子：<br><img src="http://upload-images.jianshu.io/upload_images/2515396-d405ed0ab4f72faf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ol>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>Node.js和git都安装好后，可执行如下命令安装hexo</p>
+<ol>
+<li>在任意文件夹或桌面右键选择Git Bush Here(这条语句代表全局安装hexo所以在任意位置都可以安装)<blockquote>
+<p>npm install -g hexo</p>
+</blockquote>
+</li>
+<li><p>初始化，在你自己指定的位置Git Bush Here然后输入下面这个语句(我是在D:\Hexo进行初始化的，也可以是别的文件夹)</p>
+<blockquote>
+<p>hexo init</p>
+</blockquote>
+</li>
+<li><p>继续在刚才打开的Git Bush Here执行下面的语句，可以生成静态页面至hexo\public\目录。</p>
+<blockquote>
+<p>hexo generate</p>
+</blockquote>
+</li>
+<li>启动本地服务，进行文章预览调试，浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>就可以看到效果，之后点开Git Bush Here 执行Ctrl+C停止调试。<blockquote>
+<p>hexo server</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="与github建立连接"><a href="#与github建立连接" class="headerlink" title="与github建立连接"></a>与github建立连接</h2><p>打开你的博客根目录（我的是D:\Hexo）<br>使用刚才下载好的sublime打开下面这个文件<br><img src="http://upload-images.jianshu.io/upload_images/2515396-565a3503a4dea210.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>翻到最下面</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2515396-33ede748498befbe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>将其改为<br><img src="http://upload-images.jianshu.io/upload_images/2515396-33f8785cee4bd0c9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>其中的 repository是你建立的库的地址，可以在你的库里面找到使用https还是ssh格式均可。<br><strong><em>注意，: 后面有空格</em></strong> 不加空格会出错。<br><img src="http://upload-images.jianshu.io/upload_images/2515396-1617c1369a0d386c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a>最后一步</h2><p>最后执行命令</p>
+<blockquote>
+<p>hexo deploy</p>
+</blockquote>
+<p>然后在浏览器地址栏输入<a href="https://你的github用户名.github.io/" target="_blank" rel="external">https://你的github用户名.github.io/</a> 就可以看到你的博客了。<br>（栗子：<a href="https://qfeather.github.io/" target="_blank" rel="external">https://qfeather.github.io/</a>）</p>
+<h2 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h2><p>执行下列语句生成一个名为title的空文章，当然还是在根目录下Git Bush Here。</p>
+<blockquote>
+<p>hexo n “title”</p>
+</blockquote>
+<p>可以看到提示生成了一个title.md，博客内容是用markdown语法写的。可以使用sublime的插件，也可以在线编辑，还有专门的编辑器,用sublime打开。</p>
+<blockquote>
+<p>title: postName #文章页面上的显示名称，可以任意修改，不会出现在URL中<br>date: 2013-12-02 15:30:16 #文章生成时间，一般不改，当然也可以任意修改<br>categories: #文章分类目录，可以为空，注意:后面有个空格<br>tags: #文章标签，可空，多标签请用格式[tag1,tag2,tag3]，<strong>注意 “:” 后面有个空格</strong><br>—这里开始使用markdown格式输入你的正文。</p>
+</blockquote>
+<p><strong>文章摘要</strong><br>在需要显示摘要的地方添加如下代码即可：</p>
+<blockquote>
+<p>以上是摘要<br><a id="more"></a><br>以下是余下全文</p>
+</blockquote>
+<p>more以上内容即是文章摘要，在主页显示，more以下内容点击『&gt; Read More』链接打开全文才显示。</p>
+<h2 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h2><p>hexo的主题列表<a href="http://github.com/tommy351/hexo/wiki/Themes" target="_blank" rel="external">Hexo Themes</a>。<br><strong>个人推荐的主题</strong><br><a href="https://github.com/forsigner/fexo" target="_blank" rel="external"><strong>fexo</strong></a> ——这是一个极简的主题，喜欢简洁的可以看看。<br><a href="https://github.com/stiekel/hexo-theme-random/blob/master/README.CN.md" target="_blank" rel="external"><strong>random</strong></a>——这个是我现在正在使用的主题，自定义的轮播图看起来很好。<br><a href="https://github.com/SuperKieran/TKL" target="_blank" rel="external"><strong>TKL</strong></a>——这个主题是我那个报废的博客用的，一个优雅的响应式主题。<br><a href="https://github.com/SuperKieran/TKL" target="_blank" rel="external"><strong>yilia</strong></a>——优雅简洁响应式主题。<br>下面的安装以random为例<br>在你的博客根目录里，执行如下的命令：</p>
+<blockquote>
+<p>git clone <a href="https://github.com/stiekel/hexo-theme-random.git" target="_blank" rel="external">https://github.com/stiekel/hexo-theme-random.git</a> themes/random</p>
+</blockquote>
+<p>然后修改博客的主配置文件，将主题设置为random</p>
+<blockquote>
+<p>theme: random</p>
+</blockquote>
+<p><strong>升级</strong></p>
+<blockquote>
+<p>cd themes/random<br>git pull</p>
+</blockquote>
+<p>更具体的使用方式都在主题的文档中，请自行观看。</p>
+<h2 id="一些常用命令："><a href="#一些常用命令：" class="headerlink" title="一些常用命令："></a>一些常用命令：</h2><blockquote>
+<p>hexo new “postName” #新建文章<br>hexo new page “pageName” #新建页面<br>hexo generate #生成静态页面至public目录<br>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy #将.deploy目录部署到GitHub<br>hexo help # 查看帮助<br>hexo version #查看Hexo的版本</p>
+</blockquote>
+<h2 id="常用复合命令："><a href="#常用复合命令：" class="headerlink" title="常用复合命令："></a>常用复合命令：</h2><blockquote>
+<p>hexo deploy -g<br>hexo server -g</p>
+</blockquote>
+<h2 id="简写："><a href="#简写：" class="headerlink" title="简写："></a>简写：</h2><blockquote>
+<p>hexo n == hexo new<br>hexo g == hexo generate<br>hexo s == hexo server<br>hexo d == hexo deploy</p>
+</blockquote>
+<p><strong>结束：这算是我写的第一篇正经的技术性……虽然技术含量不高的技术文章，当然如果能帮到你们最好</strong></p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#放在前面的话"><span class="toc-text">放在前面的话</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境准备"><span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#申请github账号"><span class="toc-text">申请github账号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在github新建一个Repository"><span class="toc-text">在github新建一个Repository</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装hexo"><span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与github建立连接"><span class="toc-text">与github建立连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后一步"><span class="toc-text">最后一步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写文章"><span class="toc-text">写文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主题安装"><span class="toc-text">主题安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些常用命令："><span class="toc-text">一些常用命令：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用复合命令："><span class="toc-text">常用复合命令：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简写："><span class="toc-text">简写：</span></a></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+
+  
+
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by 寂羽子曜 using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="/images/LM.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/stiekel/hexo-theme-random">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://coding.net/u/Stiekel">
+        
+          <i class="icon iconfont coding">&#xe607;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://twitter.com/SidCN">
+        
+          <i class="icon iconfont twitter">&#xe600;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://weibo.com/sidcn">
+        
+          <i class="icon iconfont weibo">&#xe602;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://www.douban.com/people/Stiekel/">
+        
+          <i class="icon iconfont douban">&#xe609;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+    
+      backgroundImages.push('/images/1.jpg');
+    
+      backgroundImages.push('/images/2.png');
+    
+      backgroundImages.push('/images/3.png');
+    
+      backgroundImages.push('/images/uuz1.jpg');
+    
+      backgroundImages.push('/images/uuz2.jpeg');
+    
+      backgroundImages.push('/images/uuz3.jpg');
+    
+      backgroundImages.push('/images/9.jpg');
+    
+      backgroundImages.push('/images/all.jpg');
+    
+      backgroundImages.push('/images/all2.jpg');
+    
+      backgroundImages.push('/images/all3.jpg');
+    
+      backgroundImages.push('/images/miku1.png');
+    
+      backgroundImages.push('/images/miku2.jpg');
+    
+      backgroundImages.push('/images/LM2.jpg');
+    
+      backgroundImages.push('/images/LM3.jpg');
+    
+      backgroundImages.push('/images/LM4.jpg');
+    
+      backgroundImages.push('/images/SJ.png');
+    
+      backgroundImages.push('/images/SJ2.jpg');
+    
+      backgroundImages.push('/images/red devil.jpg');
+    
+      backgroundImages.push('/images/black and write.jpg');
+    
+      backgroundImages.push('/images/date.png');
+    
+      backgroundImages.push('/images/map1.jpg');
+    
+      backgroundImages.push('/images/red.jpg');
+    
+      backgroundImages.push('/images/YL1.jpg');
+    
+      backgroundImages.push('/images/WW1.jpg');
+    
+      backgroundImages.push('/images/MH1.jpg');
+    
+      backgroundImages.push('/images/DFG1.jpg');
+    
+      backgroundImages.push('/images/HY1.jpg');
+    
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","flash2"],"timer":true,"delay":5000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+
